@@ -14,12 +14,13 @@ public class RegistroController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping("/registro")
-    public String mostrarRegistro(){
+    @GetMapping("/register")
+    public String mostrarRegistro(Model model){
+        model.addAttribute("usuario", new Usuario());
         return "registro";
     }
 
-    @PostMapping("/registro")
+    @PostMapping("/register")
     public String procesarRegistro(@ModelAttribute Usuario usuario, Model model) {
         usuarioService.guardar(usuario);
         return "/login";
