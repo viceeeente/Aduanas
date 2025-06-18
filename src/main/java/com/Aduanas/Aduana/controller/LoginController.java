@@ -15,9 +15,19 @@ public class LoginController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @GetMapping("/bienvenida")
+    public String mostratBienvenida(){
+        return "bienvenida";
+    }
+
     @GetMapping("/login")
     public String mostrarFormularioLogin() {
         return "login";
+    }
+
+    @GetMapping("/home")
+    public String mostratHome(Model model) {
+        return "home";
     }
 
     @PostMapping("/login")
@@ -28,7 +38,7 @@ public class LoginController {
 
         if (usuario.isPresent()) {
             model.addAttribute("usuario", usuario.get());
-            return "bienvenido";
+            return "redirect:/home";
         } else {
             model.addAttribute("error", "Nombre o contraseña incorrectos");
             return "login";
