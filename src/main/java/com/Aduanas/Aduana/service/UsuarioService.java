@@ -38,4 +38,9 @@ public class UsuarioService {
         }
         return Optional.empty();
     }
+
+    public Usuario buscarPorNombre(String nombre) {
+        return usuarioRepository.findByNombre(nombre)
+                .orElseThrow(()-> new RuntimeException("Usuario no encontrado"));
+    }
 }
