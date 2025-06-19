@@ -2,6 +2,7 @@ package com.Aduanas.Aduana.controller;
 
 import com.Aduanas.Aduana.model.Usuario;
 import com.Aduanas.Aduana.service.UsuarioService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,11 +34,14 @@ public class LoginController {
     @PostMapping("/login")
     public String procesarLogin(@RequestParam String nombre,
                                 @RequestParam String password,
+                                HttpSession session,
                                 Model model) {
-        Optional<Usuario> usuario = usuarioService.autenticarLogin(nombre, password);
 
-        if (usuario.isPresent()) {
-            model.addAttribute("usuario", usuario.get());
+        Optional<Usuario> usuarioOpt = usuarioService.autenticarLogin(nombre, password);
+
+        if(usuarioOpt.isPresent()) {
+            session.setAttribute("usuarioLogeado",usuarioOpt.get());
+            System.out.println("Guardado en sesion: " + usuarioOpt.get().getNombre());
             return "redirect:/home";
         } else {
             model.addAttribute("errorLogin", "Nombre o contraseña incorrectos");

@@ -19,7 +19,7 @@ public class TramiteFormularioSalidaOIngreso {
     private Long id;
 
     @Column (nullable = false)
-    private String run;
+    private Integer run;
 
     @Column (nullable = false)
     private String nombre;

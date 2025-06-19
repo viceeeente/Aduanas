@@ -2,6 +2,7 @@ package com.Aduanas.Aduana.controller;
 
 import com.Aduanas.Aduana.model.Usuario;
 import com.Aduanas.Aduana.service.UsuarioService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,11 +26,12 @@ public class LoginTramiteController {
     @PostMapping("/login-tramite")
     public String procesarLoginTramite(@RequestParam String nombre,
                                        @RequestParam String claveUnica,
+                                       HttpSession session,
                                        Model model) {
         Optional<Usuario> usuario = usuarioService.autenticarLoginTramite(nombre,claveUnica);
 
         if(usuario.isPresent()) {
-            model.addAttribute("usuario", usuario.get());
+            session.setAttribute("usuario", usuario.get());
             return "redirect:/tramite";
         } else {
               model.addAttribute("errorTramiteFormulario","Nombre o Clave Unica incorrectos");

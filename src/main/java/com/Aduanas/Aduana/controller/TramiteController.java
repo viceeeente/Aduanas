@@ -4,6 +4,7 @@ import com.Aduanas.Aduana.model.TramiteFormularioSalidaOIngreso;
 import com.Aduanas.Aduana.model.Usuario;
 import com.Aduanas.Aduana.repository.TramiteRepository;
 import com.Aduanas.Aduana.service.UsuarioService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,14 +24,20 @@ public class TramiteController {
     private TramiteRepository tramiteRepository;
 
     @GetMapping("/tramite")
-    public String mostratLoginTramite(Model model, Principal principal) {
+    public String mostratLoginTramite(Model model, HttpSession session) {
 
-        Usuario usuario = usuarioService.buscarPorNombre(principal.getName());
+        Usuario usuario = (Usuario) session.getAttribute("usuarioLogeado");
+        System.out.println("Usuario en sesion: " + usuario);
+        System.out.println("ID de sesion: " + session.getId());
+
+        if(usuario == null){
+            return "redirect:/login-tramite?error=acceso";
+        }
 
         TramiteFormularioSalidaOIngreso formulario = new TramiteFormularioSalidaOIngreso();
-        formulario.setRun(formulario.getRun());
-        formulario.setNombre(formulario.getNombre());
-        formulario.setNacionalidad(formulario.getNacionalidad());
+        formulario.setRun(usuario.getRun());
+        formulario.setNombre(usuario.getNombre());
+        formulario.setNacionalidad(usuario.getNacionalidad());
         formulario.setUsuario(usuario);
 
         model.addAttribute("tramiteFormularioSalidaOIngreso",formulario);
