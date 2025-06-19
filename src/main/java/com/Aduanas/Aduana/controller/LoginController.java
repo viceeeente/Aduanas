@@ -34,7 +34,7 @@ public class LoginController {
     public String procesarLogin(@RequestParam String nombre,
                                 @RequestParam String password,
                                 Model model) {
-        Optional<Usuario> usuario = usuarioService.autenticar(nombre, password);
+        Optional<Usuario> usuario = usuarioService.autenticarLogin(nombre, password);
 
         if (usuario.isPresent()) {
             model.addAttribute("usuario", usuario.get());
