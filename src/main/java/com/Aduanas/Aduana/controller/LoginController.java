@@ -40,7 +40,7 @@ public class LoginController {
             model.addAttribute("usuario", usuario.get());
             return "redirect:/home";
         } else {
-            model.addAttribute("error", "Nombre o contraseña incorrectos");
+            model.addAttribute("errorLogin", "Nombre o contraseña incorrectos");
             return "login";
         }
     }

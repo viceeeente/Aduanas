@@ -10,11 +10,13 @@
       <h2>Fomulario para Ingreso/Salida</h2>
     </div>
 
-    <form th:action="@{/tramite}" th:object="${tramiteFormularioSalidaOIngreso}" mehtod="post">
+    <form th:action="@{/tramite}" th:object="${tramiteFormularioSalidaOIngreso}" method="post">
 
-        <label></label>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" th:field="*{nombre}" readonly>
 
     </form>
+
 
 
 </body>
