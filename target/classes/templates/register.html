@@ -12,7 +12,7 @@
 
   <form th:action="@{/register}" th:object="${usuario}" method="post">
     <label for="run">Run:</label>
-    <input type="text" id="run" th:field="*{run}" pattern="\d{8}$" inputmode="numeric" required>
+    <input type="text" id="run" th:field="*{run}" pattern="[0-9]{7,8}" inputmode="numeric" maxlength="8" required>
 
     <label for="dv">Digito Verificador:</label>
     <input type="text" id="dv" th:field="*{dv}" required>

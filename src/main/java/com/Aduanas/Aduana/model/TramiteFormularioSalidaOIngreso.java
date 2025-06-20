@@ -45,4 +45,7 @@ public class TramiteFormularioSalidaOIngreso {
     @ManyToOne
     private Usuario usuario;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Vehiculo vehiculo;
+
 }
