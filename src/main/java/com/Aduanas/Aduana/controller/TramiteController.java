@@ -37,6 +37,7 @@ public class TramiteController {
         TramiteFormularioSalidaOIngreso formulario = new TramiteFormularioSalidaOIngreso();
         formulario.setRun(usuario.getRun());
         formulario.setNombre(usuario.getNombre());
+        formulario.setClaveUnica(usuario.getClaveUnica());
         formulario.setNacionalidad(usuario.getNacionalidad());
         formulario.setUsuario(usuario);
 

@@ -15,6 +15,25 @@
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" th:field="*{nombre}" readonly>
 
+        <label for="claveUnica">Clave Unica: </label>
+        <input type="text" id="claveUnica" th:field="*{claveUnica}" readonly>
+
+        <label for="nacionalidad">Nacionalidad: </label>
+        <input type="text" id="nacionalidad" th:field="*{nacionalidad}">
+
+        <label for="fechaIngreso">Fecha de Ingreso: </label>
+        <input type="date" id="fechaIngreso" th:field="*{fechaIngreso}">
+
+        <label for="fechaSalida">Fecha de Salida: </label>
+        <input type="date" id="fechaSalida" th:field="*{fechaSalida}">
+
+        <label for="vehiculoPropio">Viaja en vehiculo proprio?</label>
+        <input type="checkbox" id="vehiculoPropio" th:field="*{vehiculoPropio}">
+
+        <label for="viajaConMenor">Viaja con un menor de edad?</label>
+        <input type="checkbox" id="viajaConMenor" th:field="*{viajaConMenor}">
+
+
     </form>
 
 
