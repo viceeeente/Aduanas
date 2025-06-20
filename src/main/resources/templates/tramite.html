@@ -63,7 +63,7 @@
             <input type="text" id="parentezo" name="parentezco">
 
             <label for="run">Run:</label>
-            <input type="number" id="run" name="run">
+            <input type="text" id="run" th:field="*{menor.run}" pattern="[0-9]{7,8}" inputmode="numeric" maxlength="8" required>
 
         </div>
 
