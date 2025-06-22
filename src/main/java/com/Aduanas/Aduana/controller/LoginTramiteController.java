@@ -34,8 +34,8 @@ public class LoginTramiteController {
             session.setAttribute("usuario", usuario.get());
             return "redirect:/tramite";
         } else {
-              model.addAttribute("errorTramiteFormulario","Nombre o Clave Unica incorrectos");
-                return "login-tramite";
+            model.addAttribute("errorTramiteFormulario","Nombre o Clave Unica incorrectos");
+            return "login-tramite";
 
         }
     }
