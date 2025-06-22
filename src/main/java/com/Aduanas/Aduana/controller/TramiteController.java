@@ -76,11 +76,11 @@ public class TramiteController {
             return "redirect:/login-tramite?error=acceso";
         }
         try {
-            tramiteRepository.save(formulario);
+            TramiteFormularioSalidaOIngreso tramiteGuardado = tramiteRepository.save(formulario);
             System.out.println("Tramite guardado");
-            return "redirect:/home";
+            return "redirect:/resumen-tramite/" + tramiteGuardado.getId();
         }   catch (Exception e ) {
-            return "tramite";
+            return "redirect:/home";
         }
     }
 
