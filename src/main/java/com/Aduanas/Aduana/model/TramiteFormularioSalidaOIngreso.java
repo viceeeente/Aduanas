@@ -51,4 +51,7 @@ public class TramiteFormularioSalidaOIngreso {
     @OneToOne(cascade = CascadeType.ALL)
     private Menor menor;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Alimento alimento;
+
 }
