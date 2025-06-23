@@ -1,9 +1,6 @@
 package com.Aduanas.Aduana.controller;
 
-import com.Aduanas.Aduana.model.Menor;
-import com.Aduanas.Aduana.model.TramiteFormularioSalidaOIngreso;
-import com.Aduanas.Aduana.model.Usuario;
-import com.Aduanas.Aduana.model.Vehiculo;
+import com.Aduanas.Aduana.model.*;
 import com.Aduanas.Aduana.repository.TramiteRepository;
 import com.Aduanas.Aduana.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
@@ -45,6 +42,7 @@ public class TramiteController {
         formulario.setUsuario(usuario);
         formulario.setVehiculo(new Vehiculo());
         formulario.setMenor(new Menor());
+        formulario.setAlimento(new Alimento());
 
         model.addAttribute("tramiteFormularioSalidaOIngreso",formulario);
         return "tramite";

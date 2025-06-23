@@ -42,6 +42,9 @@ public class TramiteFormularioSalidaOIngreso {
     @Column (nullable = false)
     private Boolean viajaConMenor;
 
+    @Column (nullable = false)
+    private Boolean tipoAlimento;
+
     @ManyToOne
     private Usuario usuario;
 

@@ -104,6 +104,29 @@
 
     </div>
 
+    <input type="checkbox" id="tipoAlimento" th:field="*{tipoAlimento}" onclick="mostrarOcultar('menuAlimento', this)">
+    <label for="tipoAlimento">¿Lleva algun tipo de Alimento?</label>
+
+    <div id="menuAlimento" style="display: none;">
+
+        <label for="nombreA">Nombre:</label>
+        <input type="text" id="nombreA" th:field="*{alimento.nombre}">
+
+        <label for="kilogramos">Kilogramos:</label>
+        <input type="number" step="0.01" id="kilogramos" th:field="*{alimento.kilogramos}">
+
+
+        <label for="tipoAlimento">Tipo Alimento:</label>
+        <select th:field="*{alimento.tipoAlimento}">
+            <option th:each="alimento : ${T(com.Aduanas.Aduana.model.TipoAlimento).values()}"
+                    th:value="${alimento}" th:text="${alimento}">
+            </option>
+        </select>
+
+    </div>
+
+
+
     <form th:action="@{/tramite}" method="post">
         <button type="submit">Enviar</button>
     </form>

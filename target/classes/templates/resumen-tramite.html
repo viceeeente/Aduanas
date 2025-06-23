@@ -29,11 +29,28 @@
     <span th:text="${tramite.viajaConMenor ? 'Sí' : 'No'}"></span>
 </p>
 
+<p th:if="${tramite.tipoAlimento != null}">
+    <strong>Lleva Alimentos</strong>
+    <span th:text="${tramite.tipoAlimento ? 'Sí' : 'No'}"></span>
+</p>
+
 <div th:if="${tramite.vehiculo != null}">
     <h2>Datos del Vehículo</h2>
     <p th:if="${tramite.vehiculo.patente != null}">
         <strong>Patente:</strong>
         <span th:text="${tramite.vehiculo.patente}"></span>
+
+        <strong>Marca:</strong>
+        <span th:text="${tramite.vehiculo.marca}"></span>
+
+        <strong>Modelo:</strong>
+        <span th:text="${tramite.vehiculo.modelo}"></span>
+
+        <strong>Color:</strong>
+        <span th:text="${tramite.vehiculo.color}"></span>
+
+        <strong>Pais de Origen:</strong>
+        <span th:text="${tramite.vehiculo.paisOrigen}"></span>
     </p>
 
 </div>
@@ -44,6 +61,36 @@
     <p th:if="${tramite.menor != null and tramite.menor.nombre != null}">
         <strong>Nombre del Menor:</strong>
         <span th:text="${tramite.menor.nombre}"></span>
+
+        <strong>Segundo Nombre:</strong>
+        <span th:text="${tramite.menor.segundoNombre}"></span>
+
+        <strong>Apellido Paterno:</strong>
+        <span th:text="${tramite.menor.apellidoPaterno}"></span>
+
+        <strong>Apellido Materno:</strong>
+        <span th:text="${tramite.menor.apellidoMaterno}"></span>
+
+        <strong>Run:</strong>
+        <span th:text="${tramite.menor.run}"></span>
+
+        <strong>Dv:</strong>
+        <span th:text="${tramite.menor.dv}"></span>
+    </p>
+
+</div>
+
+<div th:if="${tramite.tipoAlimento}">
+    <h2>Datos del Alimento</h2>
+    <p th:if="${tramite.alimento != null and tramite.alimento.nombre != null}">
+        <strong>Nombre:</strong>
+        <span th:text="${tramite.alimento.nombre}"></span>
+
+        <strong>Kilogramos:</strong>
+        <span th:text="${tramite.alimento.kilogramos}"></span>
+
+        <strong>Tipo de Alimento</strong>
+        <span th:text="${tramite.alimento.tipoAlimento}"></span>
     </p>
 
 </div>
