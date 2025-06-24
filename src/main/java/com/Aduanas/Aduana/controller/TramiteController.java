@@ -78,7 +78,7 @@ public class TramiteController {
             System.out.println("Tramite guardado");
             return "redirect:/resumen-tramite/" + tramiteGuardado.getId();
         }   catch (Exception e ) {
-            return "redirect:/home";
+            return "redirect:/resumen-tramite";
         }
     }
 
