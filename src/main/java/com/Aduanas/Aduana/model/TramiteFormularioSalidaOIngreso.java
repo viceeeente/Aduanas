@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="formularioSalida-Ingreso")
+@Table(name="formularioSalida_Ingreso")
 public class TramiteFormularioSalidaOIngreso {
 
     @Id

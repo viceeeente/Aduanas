@@ -75,10 +75,11 @@ public class TramiteController {
         }
         try {
             TramiteFormularioSalidaOIngreso tramiteGuardado = tramiteRepository.save(formulario);
-            System.out.println("Tramite guardado");
+            System.out.println("Trámite guardado con ID: " + tramiteGuardado.getId());
             return "redirect:/resumen-tramite/" + tramiteGuardado.getId();
-        }   catch (Exception e ) {
-            return "redirect:/resumen-tramite";
+        } catch (Exception e) {
+            System.out.println("❌ Error al guardar el trámite: " + e.getMessage());
+            return "redirect:/tramite?error=guardado";
         }
     }
 

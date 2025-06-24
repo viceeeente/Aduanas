@@ -127,7 +127,7 @@
 
 
 
-    <form th:action="@{/resumen-tramite}" method="post">
+    <form th:action="@{/tramite}" method="post">
         <button type="submit">Enviar</button>
     </form>
 
@@ -140,11 +140,13 @@
     seccion.style.display = checkbox.checked ? 'block' : 'none';
     }
 
+
     window.onload = function () {
         const menorCheck = document.getElementById('viajaConMenor');
         if(menorCheck) {
             mostrarOcultar('menuMenor', menorCheck);
         }
+
 
         const vehiculoCheck = document.getElementById('vehiculoPropio');
         if(vehiculoCheck) {
@@ -152,18 +154,22 @@
         }
     };
 
+
     function mostrarOcultar(id, checkbox) {
       const seccion = document.getElementById(id);
       const inputs = seccion.querySelectorAll("input, select");
       const mostrar = checkbox.checked;
 
+
       seccion.style.display = mostrar ? 'block' : 'none';
+
 
       inputs.forEach(input => {
         input.disabled = !mostrar;
       });
     }
 </script>
+
 
 
 </body>
